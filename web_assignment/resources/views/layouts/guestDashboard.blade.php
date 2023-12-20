@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container">
-        <h1>Welcome,Guest</h1>
+        @if(auth()->check())
+            <h1>Welcome, {{ auth()->user()->name }}</h1>
+        @else
+            <h1>Welcome, Guest</h1>
+        @endif
+
         <h2>Assigned Projects</h2>
 
         @forelse($assignedProjects as $project)
@@ -18,11 +23,13 @@
             <p>Projects have not yet been assigned</p>
         @endforelse
 
-        <form method="POST" action="{{ route('updatePreferences') }}" class="mt-4">
+        <form method="POST" action="" class="mt-4">
             @csrf
 
             <div class="mb-3 bg-light">
-                <label for="category1">Select Project Preference 1:</label>
+                <h3>Select Project Category Preference</h3>
+
+                <label for="category1">Select Category Preference 1:</label>
                 <select id="category1" name="category1" class="form-select">
                     <option value="naturalLanguageProcessing_pref1">Natural Language Processing</option>
                     <option value="computerVision_pref1">Computer Vision</option>
@@ -36,10 +43,8 @@
                     <option value="cloudComputing_pref1">Cloud Computing</option>
                     <option value="biomedicalEngineering_pref1">Biomedical Engineering</option>
                 </select>
-            </div>
 
-            <div class="mb-3 bg-light">
-                <label for="category2">Select Project Preference 2:</label>
+                <label for="category2">Select Category Preference 2:</label>
                 <select id="category2" name="category2" class="form-select">
                     <option value="naturalLanguageProcessing_pref2">Natural Language Processing</option>
                     <option value="computerVision_pref2">Computer Vision</option>
@@ -54,8 +59,10 @@
                     <option value="biomedicalEngineering_pref2">Biomedical Engineering</option>
                 </select>
             </div>
-
+    
             <div class="mb-3 bg-light">
+                <h3>Select Speciality</h3>
+
                 <label for="specialty">Select Specialty:</label>
                 <select id="specialty" name="specialty" class="form-select">
                     <option value="electronics_specialty">Electronics</option>
