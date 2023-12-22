@@ -29,3 +29,6 @@ The application supports user account creation with different roles (students, e
 6.	Run the “php artisan key:generate” command to generate the encryption key for your project.
 7.	Migrate and seed the database by running “php artisan migrate --seed” command.
 8.	Run "php artisan serve" command to run the application.
+9.	To sign in as Admin, use email "admin@example.com", and password "password".
+10.	To sign in as Evaluator, use email "evaluator@example.com", and password "password".
+11.	To sign in as Student, use email "student@example.com", and password "password".
