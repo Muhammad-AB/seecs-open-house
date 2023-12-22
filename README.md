@@ -27,5 +27,5 @@ The application supports user account creation with different roles (students, e
 4.	Setup the .env file, by duplicating the .env.example file and rename it to .env file
 5.	Setup the database in your .env file, by going to the code representing your database connections, and updating the values according to your own database.
 6.	Run the “php artisan key:generate” command to generate the encryption key for your project.
-7.	Migrate the database by running “php artisan migrate” command.
+7.	Migrate and seed the database by running “php artisan migrate --seed” command.
 8.	Run "php artisan serve" command to run the application.
