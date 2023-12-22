@@ -32,16 +32,6 @@ Route::get('/logout',  function () {
     return redirect('/');
 })->name('logout');
 
-// Route::get('/dashboard', function () {
-//     return view('admin_dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
 require __DIR__ . '/auth.php';
 
 
@@ -88,37 +78,3 @@ Route::any('/admin-edit-project/{id}', function ($id) {
 
     return view('admin_project_details', ['project' => $project]);
 })->name('admin.projectDetails');
-
-
-// // Admin Routes
-// Route::prefix('admin')->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('layouts.admin_dashboard');
-//     })->name('admin.dashboard');
-
-//     Route::get('/project/{id?}', function ($id=null) {
-//         return view('layouts.admin_project_details', ['id' => $id]);
-//     })->name('admin.project.details');
-// });
-
-// // Evaluator Routes
-// Route::prefix('evaluator')->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('layouts.eval_dashboard');
-//     })->name('evaluator.dashboard');
-
-//     Route::get('/project/{id?}', function ($id=null) {
-//         return view('layouts.eval_view_project', ['id' => $id]);
-//     })->name('evaluator.view.details');
-// });
-
-// // Student Routes
-// Route::prefix('student')->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('layouts.student_dashboard');
-//     })->name('student.dashboard');
-
-//     Route::get('/project/edit/{id?}', function ($id = null) {
-//         return view('layouts.student_edit_project_detail', ['id' => $id]);
-//     })->name('student.edit.project.detail');
-// });
